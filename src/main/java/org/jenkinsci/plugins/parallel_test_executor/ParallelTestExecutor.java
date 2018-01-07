@@ -286,7 +286,9 @@ public class ParallelTestExecutor extends Builder {
         if (r instanceof ClassResult) {
             ClassResult cr = (ClassResult) r;
             TestClass dp = new TestClass(cr);
-            data.put(dp.className, dp);
+            if (!wasResultGeneratedByBddFramework(cr)) {
+                data.put(dp.className, dp);
+            }
             return; // no need to go deeper
         }
         if (r instanceof TabulatedResult) {
@@ -295,6 +297,18 @@ public class ParallelTestExecutor extends Builder {
                 collect(child, data);
             }
         }
+    }
+
+    /**
+     * The current assumption when running DECISION CI is that the BDD related tests
+     * are executed using a single machine. This is due to that the BDD tests are not purely executed
+     * using JUnit and they involve Bdd Framework which runs them.
+     *
+     * As a result - The desired behaviour is to split all the tests WITHOUT the BDD tests between the remaining
+     * machines.
+     * **/
+    private static boolean wasResultGeneratedByBddFramework(ClassResult cr) {
+        return cr.getParent().getName().equals("(root)") || cr.getClassName().contains(" ");
     }
 
     private static TestResult findPreviousTestResult(Run<?, ?> originalBuild, TaskListener listener, String alternateJob) {

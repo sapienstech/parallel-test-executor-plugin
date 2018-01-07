@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite failures="0"
+           name="cucumber.runtime.formatter.JUnitFormatter"
+           skipped="0"
+           tests="28"
+           time="33.40466">
+   <testcase classname="AddNewDynamicProperty"
+             name="1) Create new dynamic property for model definition"
+             time="12.64543">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+Given I login as "admin" user...............................................passed
+And I have defined these dynamic properties for model definition............passed
+Then I should have these fact types.........................................passed
+And I should have these message categories..................................passed
+</system-out>
+   </testcase>
+   <testcase classname="CreateNewVersion"
+             name="1) Create new version from approved message category AND FT model mapping"
+             time="1.273178">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+Given I login as "admin" user...............................................passed
+When I create new version from model definition "SMS2" version label "1.0" and I rename it with label "1.1".passed
+Then I should have these fact types.........................................passed
+And I should have these message categories..................................passed
+</system-out>
+   </testcase>
+   <testcase classname="FactTypeModelMappingApprovalStrategy"
+             name="1) Submit fact type model mapping for approval with Approval Strategy &#34;All&#34;, no distinct"
+             time="1.12317">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "admin" user...............................................passed
+And I have defined these fact types.........................................passed
+When I submit fact type model mapping for approval..........................passed
+And I should have these fact types..........................................passed
+Then I should have these tasks in My Queue..................................passed
+</system-out>
+   </testcase>
+   <testcase classname="FactTypeModelMappingApprovalStrategy"
+             name="2) Reject when none approved: All, distinct, user is not approver"
+             time="0.883041">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "admin" user...............................................passed
+And I have defined these fact types.........................................passed
+And I submit fact type model mapping for approval...........................passed
+And I login as "Lyubo" user.................................................passed
+When I reject fact type model mapping with message "message text"...........passed
+Then I should have these fact types.........................................passed
+And I should have these tasks in My Queue...................................passed
+</system-out>
+   </testcase>
+   <testcase classname="FactTypeModelMappingValidation"
+             name="1) Validation for empty required property"
+             time="0.50101">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+Given I login as "admin" user...............................................passed
+And I have defined these dynamic properties for model definition............passed
+When I validate fact type model mapping.....................................passed
+Then I should have these errors.............................................passed
+</system-out>
+   </testcase>
+   <testcase classname="FactTypeModelMappingValidation"
+             name="4) Validation for no warning when Mapped info is used for different FT in different model definition version"
+             time="0.721856">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+Given I login as "admin" user...............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+When I validate fact type model mapping.....................................passed
+Then I should have these fact types.........................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryModelMappingApprovalStrategy"
+             name="1) Submit for approval: Any, distinct, user is approver"
+             time="0.7491">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "admin" user...............................................passed
+And I have defined these message categories.................................passed
+When I submit message category model mapping for approval...................passed
+Then I should have these message categories.................................passed
+And I should have these tasks in My Queue...................................passed
+And I should have these tasks in Group Queue................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryModelMappingApprovalStrategy"
+             name="2) Approve when none approved: Any, distinct, user is approver"
+             time="0.649537">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "Vlado" user...............................................passed
+And I have defined these message categories.................................passed
+And I submit message category model mapping for approval....................passed
+And I login as "admin" user.................................................passed
+When I approve message category model mapping...............................passed
+Then I should have these message categories.................................passed
+And I should have these tasks in My Queue...................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryModelMappingApprovalStrategy"
+             name="3) Submit for approval: None"
+             time="0.656839">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "admin" user...............................................passed
+And I have defined these message categories.................................passed
+When I submit message category model mapping for approval...................passed
+Then I should have these message categories.................................passed
+And I should have these tasks in My Queue...................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryModelMappingApprovalStrategy"
+             name="4) Submit for approval: All, no distinct"
+             time="0.596515">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "admin" user...............................................passed
+And I have defined these message categories.................................passed
+When I submit message category model mapping for approval...................passed
+Then I should have these message categories.................................passed
+And I should have these tasks in My Queue...................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryModelMappingApprovalStrategy"
+             name="6) Submit for approval: All, distinct, user is not approver"
+             time="0.597198">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "Yana" user................................................passed
+And I have defined these message categories.................................passed
+When I submit message category model mapping for approval...................passed
+Then I should have these message categories.................................passed
+And I should have these tasks in My Queue...................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryModelMappingApprovalStrategy"
+             name="7) Submit for approval: Any, distinct, user is not approver"
+             time="0.60279">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "Yana" user................................................passed
+And I have defined these message categories.................................passed
+When I submit message category model mapping for approval...................passed
+Then I should have these message categories.................................passed
+And I should have these tasks in My Queue...................................passed
+And I should have these tasks in Group Queue................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryModelMappingApprovalStrategy"
+             name="8) Submit for approval: All, distinct, user is approver"
+             time="0.59218">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "admin" user...............................................passed
+And I have defined these message categories.................................passed
+When I submit message category model mapping for approval...................passed
+Then I should have these message categories.................................passed
+And I should have these tasks in My Queue...................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryValidate"
+             name="1) Validate when all dynamic property fields are empty"
+             time="0.496086">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "admin" user...............................................passed
+And I have defined these message categories.................................passed
+When I validate message category model mapping..............................passed
+Then I should have these errors.............................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryValidate"
+             name="2) Submit for approval: validation"
+             time="0.602746">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "admin" user...............................................passed
+And I have defined these message categories.................................passed
+When I validate message category model mapping..............................passed
+Then I should have these errors.............................................passed
+</system-out>
+   </testcase>
+   <testcase classname="messageCategoryValidate"
+             name="3) Submit for approval: validation"
+             time="0.51139">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+Given I login as "admin" user...............................................passed
+And I have defined these message categories.................................passed
+And I have defined these dynamic properties for model definition............passed
+When I validate message category model mapping..............................passed
+Then I should have these errors.............................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionFreeze"
+             name="1) Model Definition Freeze approved message category model mapping and try to update"
+             time="1.046188">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I login as "Yana" user..................................................passed
+And I submit message category model mapping for approval....................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+Given I login as "admin" user...............................................passed
+When I update these message categories......................................passed
+Then I should have these errors.............................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionFreeze"
+             name="2) Model Definition Freeze empty message category model mapping and try to update"
+             time="0.968463">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I login as "Yana" user..................................................passed
+And I submit message category model mapping for approval....................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+Given I login as "admin" user...............................................passed
+When I update these message categories......................................passed
+Then I should have these errors.............................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionFreeze"
+             name="3) Model Definition Freeze draft message category model mapping, update and submit for approval"
+             time="0.975887">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I login as "Yana" user..................................................passed
+And I submit message category model mapping for approval....................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+Given I login as "admin" user...............................................passed
+And I update these message categories.......................................passed
+When I submit message category model mapping for approval...................passed
+Then I should have these message categories.................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionFreeze"
+             name="5) Model Definition Freeze empty FT model mapping and try to update"
+             time="0.989155">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I login as "Yana" user..................................................passed
+And I submit message category model mapping for approval....................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+Given I login as "admin" user...............................................passed
+When I update these fact types..............................................passed
+Then I should have these errors.............................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionUnreeze"
+             name="1) Model Definition Unfreeze approved FT model mapping and try to update"
+             time="1.012482">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I submit message category model mapping for approval....................passed
+Given I login as "Yana" user................................................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+And I unfreeze model definition "MD2" version label "1.0"...................passed
+Given I login as "admin" user...............................................passed
+And I have defined these fact types.........................................passed
+When I update these fact types..............................................passed
+Then I should have these fact types.........................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionUnreeze"
+             name="2) Model Definition Unfreeze empty message category model mapping and try to update"
+             time="0.981946">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I submit message category model mapping for approval....................passed
+Given I login as "Yana" user................................................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+And I unfreeze model definition "MD2" version label "1.0"...................passed
+Given I login as "admin" user...............................................passed
+When I update these message categories......................................passed
+Then I should have these message categories.................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionUnreeze"
+             name="3) Model Definition Unfreeze draft message category model mapping, update and submit for approval"
+             time="0.895215">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I submit message category model mapping for approval....................passed
+Given I login as "Yana" user................................................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+And I unfreeze model definition "MD2" version label "1.0"...................passed
+Given I login as "admin" user...............................................passed
+And I have defined these message categories.................................passed
+And I submit message category model mapping for approval....................passed
+Then I should have these message categories.................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionUnreeze"
+             name="5) Model Definition Unfreeze approved message category model mapping and try to update"
+             time="1.011443">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I submit message category model mapping for approval....................passed
+Given I login as "Yana" user................................................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+And I unfreeze model definition "MD2" version label "1.0"...................passed
+Given I login as "admin" user...............................................passed
+When I update these message categories......................................passed
+Then I should have these message categories.................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionUnreeze"
+             name="6) Model Definition Unfreeze empty FT model mapping and try to update"
+             time="0.813393">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I submit message category model mapping for approval....................passed
+Given I login as "Yana" user................................................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+And I unfreeze model definition "MD2" version label "1.0"...................passed
+Given I login as "admin" user...............................................passed
+When I update these fact types..............................................passed
+Then I should have these fact types.........................................passed
+</system-out>
+   </testcase>
+   <testcase classname="ModelDefinitionUnreeze"
+             name="7) Model Definition Unfreeze draft FT model mapping, update and submit for approval"
+             time="0.830328">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I submit message category model mapping for approval....................passed
+Given I login as "Yana" user................................................passed
+And I approve message category model mapping................................passed
+Given I login as "Lyubo" user...............................................passed
+And I approve message category model mapping................................passed
+Given I login as "Vlado" user...............................................passed
+And I approve message category model mapping................................passed
+And I submit fact type model mapping for approval...........................passed
+And I freeze model definition "MD2" version label "1.0".....................passed
+And I unfreeze model definition "MD2" version label "1.0"...................passed
+Given I login as "admin" user...............................................passed
+When I update these fact types..............................................passed
+And I submit fact type model mapping for approval...........................passed
+Then I should have these fact types.........................................passed
+</system-out>
+   </testcase>
+   <testcase classname="Normalization"
+             name="1) Message category model mapping - edit source version dynamic property"
+             time="0.27043">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I create new version from model definition "MD1" version label "1.0" and I rename it with label "1.1".passed
+Given I login as "admin" user...............................................passed
+When I update these message categories......................................passed
+Then I should have these message categories.................................passed
+</system-out>
+   </testcase>
+   <testcase classname="Normalization"
+             name="2) Message category model mapping - edit target version dynamic property"
+             time="0.407664">
+      <system-out>Given I have created these users............................................passed
+And I have defined these model definitions..................................passed
+And I have defined these approval strategies for model definitions..........passed
+And I have defined these dynamic properties for model definition............passed
+And I have defined these fact types.........................................passed
+And I have defined these message categories.................................passed
+And I create new version from model definition "MD1" version label "1.0" and I rename it with label "1.1".passed
+Given I login as "admin" user...............................................passed
+When I update these message categories......................................passed
+Then I should have these message categories.................................passed
+</system-out>
+   </testcase>
+</testsuite>

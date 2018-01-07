@@ -7,7 +7,7 @@
     <relativePath />
   </parent>
   <artifactId>parallel-test-executor</artifactId>
-  <version>1.9.jenkins-22896</version>
+  <version>1.9.1-DECISION</version>
   <packaging>hpi</packaging>
   <name>Parallel Test Executor Plugin</name>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Parallel+Test+Executor+Plugin</url>
@@ -26,6 +26,12 @@
       <url>https://repo.jenkins-ci.org/public/</url>
     </repository>
   </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
   <scm>
     <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>

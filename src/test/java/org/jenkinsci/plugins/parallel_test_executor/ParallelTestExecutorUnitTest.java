@@ -3,12 +3,12 @@ package org.jenkinsci.plugins.parallel_test_executor;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
+import hudson.tasks.junit.SuiteResult;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.test.AbstractTestResultAction;
 import org.apache.tools.ant.DirectoryScanner;
 import org.hamcrest.Matchers;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
@@ -19,16 +19,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.junit.Assume.assumeThat;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
@@ -51,6 +44,7 @@ public class ParallelTestExecutorUnitTest {
     File projectRootDir;
 
     DirectoryScanner scanner;
+    private static final int NUM_OF_TEST_NODES_IN_DECISION_CI_WITHOUT_BDD_MACHINE = 9;
 
 
     @Before
@@ -87,6 +81,52 @@ public class ParallelTestExecutorUnitTest {
         for (InclusionExclusionPattern split : splits) {
             assertFalse(split.isIncludes());
         }
+    }
+
+    @Test
+    public void decisionCiExecutionSimulation() throws Exception {
+        TestResult testResult = new TestResult(0L, scanner, false);
+        testResult.tally();
+        when(action.getResult()).thenReturn(testResult);
+        Set<String> bddTestClasses = extractBddTestClasses(testResult);
+
+        CountDrivenParallelism parallelism = new CountDrivenParallelism(NUM_OF_TEST_NODES_IN_DECISION_CI_WITHOUT_BDD_MACHINE);
+        List<InclusionExclusionPattern> splits = ParallelTestExecutor.findTestSplits(parallelism, build, listener, true);
+        assertEquals(NUM_OF_TEST_NODES_IN_DECISION_CI_WITHOUT_BDD_MACHINE, splits.size());
+        assertTrue(areResultingSplitsFreeOfBdd(splits,bddTestClasses));
+    }
+
+    private boolean areResultingSplitsFreeOfBdd(List<InclusionExclusionPattern> splits, Set<String> bddTestClasses) {
+        return Collections.disjoint(getAllClassesInSplits(splits),bddTestClasses);
+    }
+
+    private Set<String> getAllClassesInSplits(List<InclusionExclusionPattern> splits) {
+        Set<String> allClassesInSplit = new HashSet<>();
+        String[] extensionsToRemove = {"java","class"};
+        for (InclusionExclusionPattern split : splits) {
+            allClassesInSplit.addAll(removeAllExtensions(split.getList(),extensionsToRemove));
+        }
+        return allClassesInSplit;
+    }
+
+    private Set<String> extractBddTestClasses(TestResult testResult) {
+        Set<String> bddClasses = new HashSet<>();
+        for(SuiteResult suite : testResult.getSuites()) {
+            if (suite.getFile().toLowerCase().contains("bdd")) {
+                bddClasses.addAll(suite.getClassNames());
+            }
+        }
+        return bddClasses;
+    }
+
+    private List<String> removeAllExtensions(List<String> stringList, String[] extensionsToRemove) {
+        List<String> stringsWithoutExtension = new ArrayList<>();
+        for(String string : stringList) {
+            for (String extension : extensionsToRemove) {
+                stringsWithoutExtension.add(string.replace("." + extension,""));
+            }
+        }
+        return stringsWithoutExtension;
     }
 
     @Test

@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite failures="0"
+           name="cucumber.runtime.formatter.JUnitFormatter"
+           skipped="0"
+           tests="65"
+           time="175.71317">
+   <testcase classname="Custom Properties On flow"
+             name="19) draft DF with invalid CP, fix CP and check validation"
+             time="3.851066">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I have defined these custom properties for "DF" entity type...........passed
+And I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "Validate" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view in whiteboard "wb1" for "DV1" decision view set as "RFV1".passed
+And I Validated "DV1" decision view.........................................passed
+And I do not have decision view validation errors for "DV1" decision view...passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+When I updated custom properties for "myDecisionFlow" of entity type "DF"...passed
+Then I validated "myDecisionFlow" decision flow.............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task: service task name must be unique &amp; contract must be selected"
+             time="0.780648">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Mismatched Type causes violation message"
+             time="1.309233">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "OhHowIHateTests" with the "TestsAreBoringAsHell" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+Then I have the following decision flow validation errors...................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in element input section, validate either fact type or value is selected, not both"
+             time="1.346787">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract" is created with version "1".......passed
+Given decision view with a view name "view1" and verb "verb1" and conclusion fact type "FT1" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in mapping input parameter to Fact Type and message, validate Fact Type is a conclusion"
+             time="2.659804">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract" is created with version "1".......passed
+Given decision view with a view name "view1" and verb "verb1" and conclusion fact type "FT6" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation warnings..................passed
+And I do not have decision flow validation errors...........................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation warnings.........................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in mapping screen, if input and output parameters mapped to the same Fact Type with message category, no validation warning should appear"
+             time="1.251082">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract" is created with version "1".......passed
+Given decision view with a view name "view1" and verb "verb1" and conclusion fact type "FT6" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation warnings.........................passed
+And I do not have decision flow validation errors...........................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation warnings..................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in mapping input parameter to Fact Type and message, validate the selected category is in use"
+             time="1.379397">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract" is created with version "1".......passed
+Given decision view with a view name "view1" and verb "verb1" and conclusion fact type "FT6" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I created "FT2" supporting rule family view for "RFV1" rule family view under "DV1" decision view set as "RFV2".passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation warnings..................passed
+And I do not have decision flow validation errors...........................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation warnings.........................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in mapping input parameter to Fact Type and message, validate the selected category is in use before a service task location"
+             time="1.722632">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract" is created with version "1".......passed
+Given decision view with a view name "view1" and verb "verb1" and conclusion fact type "FT6" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I created "FT2" supporting rule family view for "RFV1" rule family view under "DV1" decision view set as "RFV2".passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view2" and verb "verb2" and conclusion fact type "FT6" set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I created "FT2" supporting rule family view for "RFV2" rule family view under "DV2" decision view set as "RFV2".passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation warnings..................passed
+And I do not have decision flow validation errors...........................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation warnings.........................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in mapping input parameter to Fact Type and message, validate Fact Type is a conclusion in a dv before the Service task location in flow"
+             time="1.252699">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract" is created with version "1".......passed
+Given decision view with a view name "view1" and verb "verb1" and conclusion fact type "FT6" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I created "FT2" supporting rule family view for "RFV1" rule family view under "DV1" decision view set as "RFV2".passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation warnings..................passed
+And I do not have decision flow validation errors...........................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation warnings.........................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element and sub flow with the same service task: mapping input parameter to Fact Type and message"
+             time="1.249609">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract" is created with version "1".......passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract1" is created with version "1"......passed
+Given decision view with a view name "view1" and verb "verb1" and conclusion fact type "FT6" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I created "FT2" supporting rule family view for "RFV1" rule family view under "DV1" decision view set as "RFV2".passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask1" with the "newServiceContract1" contract to the "myDecisionFlow" flow.passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in mapping input parameter to Fact Type and message, when parameter data type is Text, no validation errors"
+             time="0.939728">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract" is created with version "1".......passed
+Given decision view with a view name "view1" and verb "verb1" and conclusion fact type "FT6" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation warnings.........................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in mapping input parameter to Fact Type and message, when parameter data type is not Text, there is a validation error"
+             time="0.862612">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And service contract "newServiceContract" is created with version "1".......passed
+Given decision view with a view name "view1" and verb "verb1" and conclusion fact type "FT1" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "newServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in mapping parameters to Fact Type, when parameter data type is &#34;Amount&#34; and fact type data type is &#34;Amount&#34; there is no validation error"
+             time="0.69559">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task element: in mapping parameters to Fact Type, when parameter data type is &#34;Amount&#34; and fact type data type is &#34;Text&#34; there is validation errors"
+             time="0.730967">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+Given I created a service contract..........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="Validate simple flow with 2 decision views"
+             time="0.885792">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a "view2" view  and "My Verb" verb  and "FT2" conclusion fact type in "wb1" whiteboard set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="create update and validate simple flow with 2 decision views"
+             time="1.015059">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a "view2" view  and "My Verb" verb  and "FT2" conclusion fact type in "wb1" whiteboard set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+And I validated "someFlow" decision flow....................................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="Validate flow with invalid dv in the sub flow and in the sub-sub flow"
+             time="1.065213">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a "view2" view  and "My Verb" verb  and "FT2" conclusion fact type in "wb1" whiteboard set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+Given decision view with a "view4" view  and "My Verb" verb  and "FT2" conclusion fact type in "wb1" whiteboard set as "DV4".passed
+And I created rule family view for "DV4" decision view set as "RFV4"........passed
+And I Validated "DV4" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="Validate flow with valid dvs in the sub flow and sub-sub flow"
+             time="1.104917">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a "view2" view  and "My Verb" verb  and "FT2" conclusion fact type in "wb1" whiteboard set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I do not have decision view validation errors for "DV2" decision view...passed
+Given decision view with a "view4" view  and "My Verb" verb  and "FT2" conclusion fact type in "wb1" whiteboard set as "DV4".passed
+And I created rule family view for "DV4" decision view set as "RFV4"........passed
+And I Validated "DV4" decision view.........................................passed
+And I do not have decision view validation errors for "DV4" decision view...passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="Validate flow with old version of Fact Type in a sub flow and Latest Version of the Fact Type in a different  outside the sub flow"
+             time="0.865046">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given I have defined these fact types.......................................passed
+Given decision view with a "view4" view  and "My Verb" verb  and "FT2" conclusion fact type in "wb1" whiteboard set as "DV4".passed
+And I created rule family view for "DV4" decision view set as "RFV4"........passed
+And I Validated "DV4" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="Create a decision flow with circle in it, validate and make sure you get a validation error"
+             time="0.951086">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given I have defined these fact types.......................................passed
+Given I created rule family view for "DV1" decision view set as "RFV1"......passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+When I validated "myDecisionFlow" decision flow.............................passed
+Then I have the following decision flow validation errors...................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="Create a decision flow with gateway: validate the operator matches regular Fact Type data type"
+             time="1.002964">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given I have defined these fact types.......................................passed
+Given I created rule family view for "DV1" decision view set as "RFV1"......passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+When I validated "myDecisionFlow" decision flow.............................passed
+Then I have the following decision flow validation errors...................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+When I validated "myDecisionFlow" decision flow.............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="Create a decision flow with list gateway: validate the operator matches list Fact Type data type"
+             time="0.953837">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given I have defined these fact types.......................................passed
+Given I created rule family view for "DV1" decision view set as "RFV1"......passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+When I validated "myDecisionFlow" decision flow.............................passed
+Then I have the following decision flow validation errors...................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+When I validated "myDecisionFlow" decision flow.............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="validate flow with numeric regular FT in gateway with Is Not In (IC) operator and two decision view"
+             time="1.025578">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view3" and verb "My Verb" and conclusion fact type "FT1" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view2" and verb "My Verb" and conclusion fact type "FT2" set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+Then I have the following decision flow validation errors...................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+When I validated "myDecisionFlow" decision flow.............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="validate flow with regular quantity FT in gateway with  Is Not In (IC) operator and two decision view"
+             time="1.185475">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view3" and verb "My Verb" and conclusion fact type "FT1" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view2" and verb "My Verb" and conclusion fact type "FT2" set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+Then I have the following decision flow validation errors...................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+When I validated "myDecisionFlow" decision flow.............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="validate flow with regular date FT in gateway with  Is Not In (IC) operator"
+             time="1.017102">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view3" and verb "My Verb" and conclusion fact type "FT1" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view2" and verb "My Verb" and conclusion fact type "FT2" set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+Then I have the following decision flow validation errors...................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+When I validated "myDecisionFlow" decision flow.............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="validate flow with numeric regular FT in gateway with Is In (IC) operator"
+             time="0.912436">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view3" and verb "My Verb" and conclusion fact type "FT1" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view2" and verb "My Verb" and conclusion fact type "FT2" set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+Then I have the following decision flow validation errors...................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="validate flow with regular quantity FT in gateway with  Is In (IC) operator"
+             time="1.050536">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view3" and verb "My Verb" and conclusion fact type "FT1" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view2" and verb "My Verb" and conclusion fact type "FT2" set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+Then I have the following decision flow validation errors...................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="validate flow with regular date FT in gateway with  Is In (IC) operator"
+             time="0.920688">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view3" and verb "My Verb" and conclusion fact type "FT1" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view2" and verb "My Verb" and conclusion fact type "FT2" set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+Then I have the following decision flow validation errors...................passed
+And I updated decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="flow Validation"
+             name="test get all flow path in rule flow"
+             time="0.778452">
+      <system-out>Given I have defined these fact types.......................................passed
+Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view1" view  and "My Verb" verb  and "FT1" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view3" and verb "My Verb" and conclusion fact type "FT1" set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+Given decision view with a view name "view2" and verb "My Verb" and conclusion fact type "FT2" set as "DV2".passed
+And I created rule family view for "DV2" decision view set as "RFV2"........passed
+And I Validated "DV2" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I have the following path for "myDecisionFlow" decision flow............passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Amount&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="3.118619">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;BasisPoint&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="3.088833">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Numeric&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="3.344768">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Percent&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="3.113806">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Name&#34; and mapped fact type with data types: Name, Code, Identifier, Indicator,"
+             time="2.833454">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Code&#34; and mapped fact type with data types: Name, Code, Identifier,"
+             time="2.974118">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/ result with data type &#34;Identifier&#34; and mapped fact type with data types: Name, Code, Identifier,"
+             time="2.837665">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Indicator&#34; and mapped fact type with data types: Name, Code,"
+             time="2.748975">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task has have input/result with data type &#34;Text&#34; and mapped fact type with data types: Name, Code, Identifier,"
+             time="2.967029">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Enumerator&#34; and mapped fact type with data type: Enumerator (Regular and List)"
+             time="0.461379">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Date&#34; and mapped fact type with data types: Date and"
+             time="0.698423">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;DateTime&#34; and mapped fact type with data types: Date,"
+             time="0.830562">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;MonthYear &#34; and mapped fact type with data type: MonthYear (Regular and List)"
+             time="0.405677">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Month&#34; and mapped fact type with data type: Month (Regular and List)"
+             time="0.40393">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with external task who have input/result with data type &#34;Year&#34; and mapped fact type with data type: Year (Regular and List)"
+             time="0.422504">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Quantity&#34; and mapped fact type with data types: Month, Year,"
+             time="1.082983">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Day&#34; and mapped fact type with data type: Day (Regular and List)"
+             time="0.379162">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Amount&#34; and mapped fact type with data types: Name, Code, Identifier,"
+             time="3.43558">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;BasisPoint&#34; and mapped fact type with data types: Name, Code, Identifier,"
+             time="3.57333">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Numeric&#34; and mapped fact type with data types: Name, Code, Identifier,"
+             time="3.356141">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Percent&#34; and mapped fact type with data types: Name, Code, Identifier,"
+             time="3.326757">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Name&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="4.56793">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Code&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="4.980688">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Identifier&#34; and mapped fact type with data types:  Amount, BasisPoint,"
+             time="4.686804">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with external task who have input/result with data type &#34;Indicator&#34; and mapped fact type with data types:  Amount, BasisPoint,"
+             time="4.722763">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Text&#34; and mapped fact type with data types:  Amount, BasisPoint,"
+             time="4.643062">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Enumerator&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="10.659827">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Date&#34; and mapped fact type with data types: Amount, BasisPoint, Numeric,"
+             time="8.431615">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;DateTime&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="7.53334">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;MonthYear&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="9.904669">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Month&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="9.295433">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task has have input/result with data type &#34;Year&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="9.45778">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Quantity&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="6.435189">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Day&#34; and mapped fact type with data types: Amount, BasisPoint,"
+             time="9.350584">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+   <testcase classname="Validations for parameter and fact type matching data types"
+             name="Validate decision flow with service task who has input/result with data type &#34;Amount&#34; and  mapped fact type is empty"
+             time="0.436852">
+      <system-out>Given I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+Given I have defined these fact types.......................................passed
+And I created a service contract............................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I updated a service task "MyServiceTask" with the "myServiceContract" contract to the "myDecisionFlow" flow.passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I do not have decision flow validation errors...........................passed
+</system-out>
+   </testcase>
+   <testcase classname="Verifying decision flow validation performs as expected"
+             name="Test validation of rule flow with invalid decision view with very long name"
+             time="0.436904">
+      <system-out>Given I have defined these fact types.......................................passed
+And I created "wb1" whiteboard for "my task" task with flow that is defined with "simple flow" work flow.passed
+And decision view with a "view3" view  and "My Verb" verb  and "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" conclusion fact type in "wb1" whiteboard set as "DV1".passed
+And I created rule family view for "DV1" decision view set as "RFV1"........passed
+And I Validated "DV1" decision view.........................................passed
+And I created decision flow in "wb1" whiteboard.............................passed
+And I validated "myDecisionFlow" decision flow..............................passed
+And I have the following decision flow validation errors....................passed
+</system-out>
+   </testcase>
+</testsuite>
