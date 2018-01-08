@@ -297,21 +297,20 @@ public class ParallelTestExecutor extends Builder {
         }
     }
 
-    private static TestResult findPreviousTestResult(Run<?, ?> originalBuild, TaskListener listener, String alternateJob) {
-        Run<?,?> b = originalBuild;
+    private static TestResult findPreviousTestResult(Run<?, ?> b, TaskListener listener, String alternateJob) {
+        listener.getLogger().println("Alternate Job name: " + alternateJob);
+        listener.getLogger().println("original build Name is: " + b.getDisplayName());
         if (alternateJob != null && !alternateJob.equals("")) {
-            TopLevelItem item = Jenkins.getInstance().getItem(alternateJob);
-            if (item != null) {
-                if (item instanceof Job) {
-                    Job j = (Job) item;
-                    if (!j.getBuilds().isEmpty()) {
-                        b = j.getLastBuild();
-                    } else {
-                        listener.getLogger().printf("Job named %s does not have any existing builds, falling back to current job",
-                                alternateJob);
-                    }
+            listener.getLogger().println("originalBuild.getParent() display name is:  " + b.getParent().getDisplayName());
+            Job j = Jenkins.getInstance().getItem(alternateJob, b.getParent(), Job.class);
+            if (j != null) {
+                if (!j.getBuilds().isEmpty()) {
+                    listener.getLogger().println("j getDisplayName success: " + j.getDisplayName());
+                    b = j.getLastBuild();
+                    listener.getLogger().println("j getLastBuild number success: " + j.getLastBuild().getNumber());
                 } else {
-                    listener.getLogger().printf("Item named %s is not a job, falling back to current job.", alternateJob);
+                    listener.getLogger().printf("Job named %s does not have any existing builds, falling back to current job",
+                            alternateJob);
                 }
             } else {
                 listener.getLogger().printf("Could not find job named %s, falling back to current job.", alternateJob);
@@ -320,16 +319,24 @@ public class ParallelTestExecutor extends Builder {
 
         for (int i = 0; i < NUMBER_OF_BUILDS_TO_SEARCH; i++) {// limit the search to a small number to avoid loading too much
             b = b.getPreviousBuild();
-            if (b == null) break;
-            if(!RESULTS_OF_BUILDS_TO_CONSIDER.contains(b.getResult())) continue;
-
-            AbstractTestResultAction tra = b.getAction(AbstractTestResultAction.class);
-            if (tra == null) continue;
-
-            Object o = tra.getResult();
-            if (o instanceof TestResult) {
-                listener.getLogger().printf("Using build #%d as reference%n", b.getNumber());
-                return (TestResult) o;
+            if (b == null) {
+                listener.getLogger().println("b is null");
+                break;
+            }
+            if(!RESULTS_OF_BUILDS_TO_CONSIDER.contains(b.getResult())) {
+                listener.getLogger().println("b result is : " + b.getResult().toString());
+                listener.getLogger().println("b build number is : " + b.getNumber());
+            } else {
+                AbstractTestResultAction tra = b.getAction(AbstractTestResultAction.class);
+                if (tra == null) {
+                    listener.getLogger().println("b tra is null");
+                } else {
+                    Object o = tra.getResult();
+                    if (o instanceof TestResult) {
+                        listener.getLogger().printf("Using build #%d as reference%n", b.getNumber());
+                        return (TestResult) o;
+                    }
+                }
             }
         }
         return null;    // couldn't find it
@@ -343,11 +350,11 @@ public class ParallelTestExecutor extends Builder {
         }
 
         public AutoCompletionCandidates doAutoCompleteTestJob(@QueryParameter String value, @AncestorInPath Item self, @AncestorInPath ItemGroup container) {
-            return AutoCompletionCandidates.ofJobNames(AbstractProject.class, value, self, container);
+            return AutoCompletionCandidates.ofJobNames(Job.class, value, self, container);
         }
 
         public AutoCompletionCandidates doAutoCompleteAlternateJob(@QueryParameter String value, @AncestorInPath Item self, @AncestorInPath ItemGroup container) {
-            return AutoCompletionCandidates.ofJobNames(AbstractProject.class, value, self, container);
+            return AutoCompletionCandidates.ofJobNames(Job.class, value, self, container);
         }
 
         @Override
