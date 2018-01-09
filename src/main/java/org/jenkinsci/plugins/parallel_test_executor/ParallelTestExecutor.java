@@ -309,7 +309,7 @@ public class ParallelTestExecutor extends Builder {
      * **/
     private static boolean wasResultGeneratedByBddFramework(ClassResult cr) {
         return cr.getParent().getName().equals("(root)") || cr.getParent().getName().contains(" ") ||
-                cr.getClassName().contains(" ") || cr.getParent().getName().contains(" ");
+                cr.getClassName().contains(" ");
     }
 
     private static TestResult findPreviousTestResult(Run<?, ?> b, TaskListener listener, String alternateJob) {
